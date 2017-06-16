@@ -1,0 +1,49 @@
+html
+{
+  background: gray;
+  margin: 50px;
+  padding: 0px;
+}
+
+body
+{
+  width: 800px;
+  height: 800px;
+  background: brown;
+  padding: 25px;
+  margin: auto;
+}
+
+#header
+{
+  background: blue;
+  color: white;
+  text-align: center;
+  margin: 0px;
+  padding: 25px;
+}
+
+#menu
+{
+  background: purple;
+  color: white;
+  text-align: center;
+  margin: 0px;
+  padding: 1px;
+}
+
+#content
+{
+  background: lightGreen;
+  margin: 0px;
+  padding: 25px;
+  text-align: justify;
+}
+
+#bottom
+{
+  background: gold;
+  margin: 0px;
+  padding: 25px;
+  text-align: center;
+}
