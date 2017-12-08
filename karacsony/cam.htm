@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+	<html>
+
+		<head>
+		
+			<meta charset="utf-8">
+		
+			<style>
+		
+				body
+				{
+					background-color: black;
+					color: white;
+					font-weight: bold;
+					font-size: 50px;
+					text-transform: uppercase;
+					font-family: bookman old style;
+					background-image: url("doge_background.jpg");
+					margin-top: 25px;
+					margin-left: 50px;
+				}
+
+				img
+				{
+					width: 1280px;
+					height: 1024px;
+					border: 5px solid black;
+					border-radius: 5px;
+					float: right;
+					margin-top: -495px;
+					margin-right: 17.5px;
+				}
+				
+				#digitalclock
+				{
+					color: yellow;
+					font-size: 185px;
+					font-family: Comic Sans Ms;
+				}
+				
+				#clock
+				{
+					margin-top: 60px;
+					margin-left: -12.5px;
+				}
+				
+				#snowflakeContainer {
+					position: absolute;
+					left: 0px;
+					top: 0px;
+				}
+				.snowflake {
+					padding-left: 15px;
+					font-family: Cambria, Georgia, serif;
+					font-size: 14px;
+					line-height: 24px;
+					position: fixed;
+					color: #FFFFFF;
+					user-select: none;
+					z-index: 1000;
+				}
+				.snowflake:hover {
+					cursor: default;
+				}
+			</style>
+		
+		</head>
+
+		<body>
+		
+<script>
+
+var mydate=new Date()
+var year=mydate.getYear()
+if (year < 1000)
+year+=1900
+var day=mydate.getDay()
+var month=mydate.getMonth()
+var daym=mydate.getDate()
+var dayarray=new Array("vasárnap","hétfő","kedd","szerda","csütörtök","péntek","szombat")
+var montharray=new Array("január","február","március","április","május","június","július","augusztus","szeptember","október","november","december")
+document.write("<small><font color='' face=''><b>"+year+".<br>"+montharray[month]+" "+daym+".<br>"+dayarray[day]+"<br></b></font></small>")
+
+</script>
+
+
+<div id="clock">
+<span id="digitalclock" class="styling"></span>
+
+<script>
+var alternate=0
+var standardbrowser=!document.all&&!document.getElementById
+
+if (standardbrowser)
+document.write('<form name="tick"><input type="text" name="tock" size="11"></form>')
+
+function show(){
+if (!standardbrowser)
+var clockobj=document.getElementById? document.getElementById("digitalclock") : document.all.digitalclock
+var Digital=new Date()
+var hours=Digital.getHours()
+var minutes=Digital.getMinutes()
+var dn=""
+
+if (hours==12) dn="" 
+if (hours>12){
+dn=""
+}
+if (hours==0) hours=12
+if (hours.toString().length==1)
+hours="0"+hours
+if (minutes<=9)
+minutes="0"+minutes
+
+if (standardbrowser){
+if (alternate==0)
+document.tick.tock.value=hours+":"+minutes+" "+dn
+else
+document.tick.tock.value=hours+" "+minutes+" "+dn
+}
+else{
+if (alternate==0)
+clockobj.innerHTML=hours+":"+minutes+" "+"<sup style='font-size:70%'>"+dn+"</sup>"
+else
+clockobj.innerHTML=hours+":"+minutes+" "+"<sup style='font-size:70%'>"+dn+"</sup>"
+}
+alternate=(alternate==0)? 1 : 0
+setTimeout("show()",1000)
+}
+window.onload=show
+
+</script>
+</div>
+
+			<img name='FoscamCamera' src='http://192.168.4.11:81/videostream.cgi?user=guest&amp;pwd=guest' alt='Live Feed' style='background-color: rgb(80, 45, 30);' height='1024' width='1280'>
+		
+		<div id="snowflakeContainer">
+		
+			<p class="snowflake">*</p>
+			
+		</div>
+		
+		  <script src="fallingsnow_v6.js"></script>
+		
+		</body>
+
+	</html>
